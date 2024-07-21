@@ -52,7 +52,7 @@ const ForgotComponent = ({ onLogin, logo,logoStyle }) => {
       setErrors((prevErrors) => ({
         ...prevErrors,
         password:
-          'Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
+          'Password must be at least 7 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
       }));
     } else {
       setErrors((prevErrors) => ({

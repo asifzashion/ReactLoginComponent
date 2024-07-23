@@ -1,6 +1,6 @@
 {
   "name": "login-mannai-component",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A reusable login component for React",
   "main": "dist/index.js",
   "files": [
@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "file-loader": "^6.2.0",
+    "jquery": "^3.7.1",
     "prop-types": "^15.8.1",
     "react-router-dom": "^6.25.1",
     "sass": "^1.77.6",

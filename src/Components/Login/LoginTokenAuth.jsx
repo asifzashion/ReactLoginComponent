@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
  
 import './LoginComponents.scss';
  
-const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle }) => {
+const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle, globalVar }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({
@@ -76,7 +76,6 @@ const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle }) => {
     }
   };
  
- 
   const validateForm = () => {
     const newErrors = {};
     if (!username) {
@@ -101,7 +100,6 @@ const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle }) => {
             {logo && <img src={logo} alt="Logo" style={logoStyle} />}
           </div>
           <div className='card'>
- 
             <h2 className='border-bottom m0 p-3 card-title'>Login</h2>
             <div className='card-body'>
               <div className="login-form">
@@ -128,19 +126,17 @@ const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle }) => {
                 <div className='width100'>
                   <span>
                     <input type="checkbox" id="exampleCheckbox" name="example" />
-                    <label for="exampleCheckbox">remember me</label>
+                    <label htmlFor="exampleCheckbox">remember me</label>
                   </span>
- 
                   <div className='mb-3 pull-right'>
-                    <a className='fpass'> Forgot Password</a>
+                    <a href="#" className='fpass'>Forgot Password</a>
                   </div>
- 
                 </div>
                 <button type="button" onClick={handleSubmit} className="btn btn-secondary">
                   Login
                 </button>
-                <h3 style={{textAlign:'center'}}>OR</h3>
-                <button type="button" onClick={onOAuth} className="btn btn-secondary">
+                <h3 style={{textAlign: 'center'}}>OR</h3>
+                <button type="button" onClick={() => onOAuth(globalVar)} className="btn btn-secondary">
                   SignIn with OAuth
                 </button>
               </div>
@@ -154,7 +150,10 @@ const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle }) => {
  
 LoginTokenAuth.propTypes = {
   onLogin: PropTypes.func.isRequired,
-  onOAuth: PropTypes.func.isRequired
+  onOAuth: PropTypes.func.isRequired,
+  logo: PropTypes.string,
+  logoStyle: PropTypes.object,
+  globalVar: PropTypes.object.isRequired,
 };
  
 export default LoginTokenAuth;

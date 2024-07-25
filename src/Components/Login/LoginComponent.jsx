@@ -125,14 +125,13 @@ const LoginComponent = ({ onLogin, logo,logoStyle }) => {
         />
         {errors.password && <div className="error">{errors.password}</div>}
       </div>
-      <div className='width100'>
+      <div className='width100 loginoptions'>
       <span>
       <input type="checkbox" id="exampleCheckbox" name="example" />
       <label for="exampleCheckbox">remember me</label>
       </span>
 
       <div className='mb-3 pull-right'>
-      
       <Link to="/forgot-password" className='fpass'>Forgot Password</Link>
       </div>
 

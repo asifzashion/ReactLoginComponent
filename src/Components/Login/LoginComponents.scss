@@ -171,8 +171,8 @@ body {
   
   .btn-secondary {
     color: #fff;
-    background-color: #35363b;
-    border-color: #35363b;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
   }
   .mb-3 {
     margin-bottom: 1rem !important;
@@ -180,7 +180,11 @@ body {
   .w100 {
     width:100%;
   }
-  
+  .btn-primary {
+    color: #fff;
+    background-color:var(--primary-color);
+    border-color: var(--primary-color);   
+  }
   
   .m0{margin: 0;}
   
@@ -189,7 +193,7 @@ body {
     background-color: #fff;
   }
   
-  .fpass{ font-weight: bold; color:#35363b; text-decoration: none;}
+  .fpass{ font-weight: 400; color:#35363b; text-decoration: none;}
   .fpass:hover{text-decoration: underline;}
   .options1 {
     margin: 1rem;
@@ -211,18 +215,10 @@ body {
   body{
     overflow-x: hidden;
   }
-
-  .col-login {
-    width: 35%;
-    margin: 0 auto;
-    max-width: 510px;
-    position: relative;
-    top: 80px;
-  }
-  .login-form{
-    position: relative;
-    background-color: #fff;
-  }
+  .loginoptions{
+    display: flex;
+    justify-content: space-between;
+}
   
-  .fpass{ font-weight: bold; color:#35363b; text-decoration: none; float: left;}
-  .fpass:hover{text-decoration: underline;}
+.verfyinput{width: 20px; margin: 10px;}
+.disflex{display: flex; justify-content: center;}

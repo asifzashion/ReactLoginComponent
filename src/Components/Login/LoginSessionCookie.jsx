@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './LoginComponents.scss';
 
-const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle }) => {
+const LoginSessionCookie = ({ onLogin, logo,logoStyle }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({
@@ -75,7 +75,7 @@ const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle }) => {
     }
   };
 
-
+  
   const validateForm = () => {
     const newErrors = {};
     if (!username) {
@@ -94,69 +94,60 @@ const LoginTokenAuth = ({ onLogin, onOAuth, logo, logoStyle }) => {
 
   return (
     <div className='container'>
-      <div className='row'>
-        <div className='col-login'>
-          <div>
-            {logo && <img src={logo} alt="Logo" style={logoStyle} />}
-          </div>
-          <div className='card'>
-
-            <h2 className='border-bottom m0 p-3 card-title'>Login</h2>
-            <div className='card-body'>
-              <div className="login-form">
-                <div className="form-group">
-                  <label className="form-label">Username:</label>
-                  <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => handleChangeUsername(e.target.value)}
-                    className="form-control"
-                  />
-                  {errors.username && <div className="error">{errors.username}</div>}
-                </div>
-                <div className="form-group mb-3">
-                  <label className="form-label">Password:</label>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => handleChangePassword(e.target.value)}
-                    className="form-control"
-                  />
-                  {errors.password && <div className="error">{errors.password}</div>}
-                </div>
-                <div className='width100 loginoptions'>
-                  <span>
-                    <input type="checkbox" id="exampleCheckbox" name="example" />
-                    <label for="exampleCheckbox">remember me</label>
-                  </span>
-
-                  <div className='mb-3 pull-right'>
-                    <a className='fpass'> Forgot Password</a>
-                  </div>
-
-                </div>
-                <button type="button" onClick={handleSubmit} className="btn btn-secondary">
-                  Login
-                </button>
-                <h3 style={{textAlign:'center'}}>OR</h3>
-                <button type="button"  onClick={() => onOAuth(globalVar)} className="btn btn-secondary">
-                  SignIn with OAuth
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className='row'>
+    <div className='col-login'>
+    <div>
+       {logo && <img src={logo} alt="Logo" style={logoStyle}/>}
+       </div>
+      <div className='card'>
+    <h2 className='border-bottom m0 p-3 card-title'>Login Session Cookie</h2>
+    <div className='card-body'>
+    <div className="login-form">
+      <div className="form-group">
+        <label className="form-label">Username:</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => handleChangeUsername(e.target.value)}
+          className="form-control"
+        />
+        {errors.username && <div className="error">{errors.username}</div>}
       </div>
+      <div className="form-group mb-3">
+        <label className="form-label">Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => handleChangePassword(e.target.value)}
+          className="form-control"
+        />
+        {errors.password && <div className="error">{errors.password}</div>}
+      </div>
+      <div className='width100 loginoptions'>
+      <span>
+      <input type="checkbox" id="exampleCheckbox" name="example" />
+      <label for="exampleCheckbox">remember me</label>
+      </span>
+
+      <div className='mb-3 pull-right'>
+      <a className='fpass'> Forgot Password</a>
+      </div>
+
+      </div>
+      <button type="button" onClick={handleSubmit} className="btn btn-secondary">
+        Login
+      </button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
   );
 };
 
-LoginTokenAuth.propTypes = {
+LoginSessionCookie.propTypes = {
   onLogin: PropTypes.func.isRequired,
-  onOAuth: PropTypes.func.isRequired,
-  logo: PropTypes.string,
-  logoStyle: PropTypes.object,
-  globalVar: PropTypes.object.isRequired,
 };
 
-export default LoginTokenAuth;
+export default LoginSessionCookie;

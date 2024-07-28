@@ -9,17 +9,32 @@ import LoginOTP from './Components/Login/LoginOTP';
 import LoginMobile from './Components/Login/LoginMobile';
 import MobileVerify from './Components/Login/MobileVerify';
 import LoginSessionCookie from './Components/Login/LoginSessionCookie';
+import LoginWebMethodsCloud from './Components/Login/LoginWebMethodsCloud';
 
+//login
 
 import { getOAuthCode } from './main.js'
 
 import './Theme.scss';
 
 import logo from './images/logo.png';
- const handleLogin = async (username, password) => {
+
+const handleLogin = async (username, password) => {
  console.log(username, password);
- 
 };
+
+const handleLoginjwt = async (username, password) => {
+  console.log(username, password);
+ };
+
+ const handleLoginSessionCoockie = async (username, password) => {
+  console.log(username, password);
+ };
+
+ const handleLoginWebMethodsCloud = async (username, password) => {
+  console.log(username, password);
+ };
+
 const logoSize = {
   width: '80px', // Adjust width as needed
   height: 'auto', // Maintain aspect ratio
@@ -49,7 +64,9 @@ const App = () => (
 <div className="App">
   <Routes>
     <Route path="/forgot-password" element={<ForgotComponent />} />
-    <Route path="/" element={<LoginComponent onLogin={handleLogin} logo={logo} logoStyle={logoSize} />} />
+    <Route path="/" element={<LoginWebMethodsCloud onLogin={handleLoginWebMethodsCloud} logo={logo} logoStyle={logoSize} />} />
+    <Route path="/" element={<LoginSessionCookie onLogin={handleLoginSessionCoockie} logo={logo} logoStyle={logoSize} />} />
+    <Route path="/" element={<LoginJwt onLogin={handleLoginjwt} logo={logo} logoStyle={logoSize} />} />
     <Route path="/" element={<LoginTokenAuth onLogin={handleLogin} logo={logo} logoStyle={logoSize} onOAuth={getOAuthCode} />} />
   </Routes>
 </div>

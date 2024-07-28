@@ -1,6 +1,6 @@
 {
   "name": "mannai-components",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A reusable login component for React",
   "main": "dist/index.js",
   "files": [

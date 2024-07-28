@@ -1,42 +1,61 @@
-# ReactLoginComponent
+**Login -- HTTP**
 
+**Introduction**
 
+This Widget enables us to add the Login functionality which connects
+with server authenticate the application.
 
-//  Auth Configration Started//
-const globalVar = {
-  OAUTH: {
-      OAUTH_URL: "https://mansagwm01.mannaicorp.com.qa:7543",
-      OAUTH_authorize: "/invoke/pub.oauth/authorize",
-      OAUTH_getToken: "/invoke/pub.oauth/getToken",
-      response_type: "code",
-      client_id: "fab4aaab4f7344c8a7f9d0be405978a0",
-      client_secret: "d47bca95e02f4554990acabdd7c480a6",
-      scope: "mansagwm015555",
-      redirect_uri: encodeURIComponent("http://localhost:5500/getAccessToken.html")
-  }
+**Screen shot**
+
+![](https://media.istockphoto.com/id/1652166108/photo/aerial-view-of-woman-standing-on-top-of-the-mountain-ridge-augstmatthorn.jpg?s=1024x1024&w=is&k=20&c=-tDFkFkCvYkh0ljUmLLl4AK1L6uAmREvPekLFN2uAJI=){width="6.5in" height="3.3826388888888888in"}
+
+**Implementation Steps**
+
+1.  Install the NPM Package
+
+npm i man-components
+
+2.  Import the component to your implementation page
+
+import Login from \'mannai-components \';
+
+3.  Create a div where this component should be placed and add the tag
+    to load it.
+
+ \<Login onLogin={handleLogin} /\>
+
+**Properties**
+
+  -----------------------------------------------------------------------
+                          **Default Values**      **Description**
+  ----------------------- ----------------------- -----------------------
+  rememberMe              True/false              Shows or hides remember
+                                                  me option
+
+  forgotPassword          True/False              Shows or hide forgot
+                                                  password link
+
+                                                  
+  -----------------------------------------------------------------------
+
+**Events**
+
+-   **onLogin**
+
+This will be triggered when the submit button is clicked
+
+-   Arguments
+
+    i.  Username
+
+    ii. Password
+
+-   Example
+
+const handleLogin = async (username, password) =\> {
+
+console.log(username, password);
+
+ 
+
 };
-
-    //  Auth Configration Ended//
-
-   // Normal Login Started //
-  const handleLogin  = async (username, password) => {   
-    try {
-      const params = new URLSearchParams();
-      params.append('username', username);
-      params.append('Password', password);
-
-      const response = await axios.post('http://eimsdemo.mannaicorp.com.qa/otcs/cs.exe/api/v1/auth', params, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-
-      });
-
-      //setResponse(response.data); // Handle success response
-      console.log(response.data);
-    } catch (error) {
-      setError('Login failed. Please check your credentials and try again.');
-      console.error(error); // Handle error response
-    }
-  };
-    // Normal Login Ended //
